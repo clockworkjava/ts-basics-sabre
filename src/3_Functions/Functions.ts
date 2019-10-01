@@ -1,12 +1,13 @@
 //bez typów, wydedukowane typy dla parametrów - any
-// function add(a,b) {
-    // return a+b;
-// }
+
 
 // o co chodzi z implicit any -> TS nie ma na jakiej podstawie wydedukować typu, nawet jeśli gdzieś
 // używamy tej funkcji, nie ma on możliwości sprawdzania "w góre"
 
-// let x = add(5,5);
+
+// function add(a,b) {
+//     return a+b;
+// }
 
 // Flaga w tsconfig.js > strict > no implicitAny
 
@@ -32,7 +33,7 @@ interface PersonalInfo {
     email?: string
 }
 
-const tMessage = (person : PersonalInfo) : {message: string} => {
+const tMessage = (person : PersonalInfo) => {
     return {
         message: `Hi {person.name} {person.age}`
     }

@@ -12,6 +12,10 @@
             this.a = 3;
         }
 
+        xx = () => {
+            return 'xx'
+        }
+
         abstract showInfo () : string;
     }
 

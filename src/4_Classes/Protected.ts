@@ -32,5 +32,4 @@ class ExtClass extends BaseClass {
 
 let xc : BaseClass = new ExtClass();
 
-// console.log(xc.someMethod());
 }

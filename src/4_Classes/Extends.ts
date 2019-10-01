@@ -1,51 +1,50 @@
 interface Base {
-    a: number;
-    b: string;
+  a: number;
+  b: string;
+}
+
+interface Custom {
+  x: number;
+}
+
+interface Ext extends Base, Custom {
+  c: boolean;
+}
+
+let ax: Base = { a: 5, b: "a" };
+
+let ac: Ext = { a: 15, b: "b", c: true, x: 5 };
+
+let xx: Base = ac;
+
+class BaseClass {
+  a: number;
+  b: string;
+
+  constructor(x: number) {
+    this.a = x;
+    this.b = "yy";
   }
-  
-  interface Ext extends Base { 
-    c: boolean;
+
+  someMethod(): string {
+    return `${this.a} ${this.b}`;
   }
-  
-  let ax: Base = { a: 5, b: "a" };
-  
-  let ac: Ext = { a: 15, b: "b", c: true };
-  
-  let xx: Base = ac; 
-
-
-
-  class BaseClass {
-
-    a: number;
-    b: string;
-
-    constructor() {
-        this.a = 0;
-        this.b = '';
-    }
-
-    someMethod () : string {
-        return `${this.a} ${this.b}`;
-    }
 }
 
 class ExtClass extends BaseClass {
+  c: boolean;
 
-    c: boolean;
+  constructor() {
+    super(10);
+    this.c = false;
+  }
 
-    constructor() {
-        super();
-        this.c = false;
-    }
-
-    //ta sama nazwa, parametry, typ zwracny
-    someMethod () : string {
-        return `${this.a} ${this.b} ${this.c}`;
-    }
+  //ta sama nazwa, parametry, typ zwracny
+  someMethod(): string {
+    return `${this.a} ${this.b} ${this.c}`;
+  }
 }
 
-let xc : BaseClass = new ExtClass();
+let xc: BaseClass = new ExtClass();
 
-console.log(xc.someMethod()); // < polimorfizm
-
+console.log(xc.someMethod());
